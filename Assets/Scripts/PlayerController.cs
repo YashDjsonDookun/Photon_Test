@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         }
     }
 
-    // Look
+    // Look()
     void Look()
     {
         transform.Rotate(Vector3.up * Input.GetAxisRaw("Mouse X") * mouseSensitivity);
@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         cameraHolder.transform.localEulerAngles = Vector3.left * verticalLookRotation;
     }
 
-    // Move
+    // Move()
     void Move()
     {
         Vector3 moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         moveAmount = Vector3.SmoothDamp(moveAmount, moveDir * (Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed), ref smoothMoveVelocity, smoothTime);
     }
 
-    // Jump
+   // Jump()
     void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
